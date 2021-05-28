@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <input type="text" v-model="msg" /> -->
+      <div>{{date|format('yyyy-MM-dd hh:mm:ss')}}</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/time.js"></script>
+    <script>
+      Vue.filter("format", function (val, args) {
+        return dateFormat(val, args);
+      });
+      //   Vue.filter("upper", function (value) {
+      //     return value.charAt(0).toUpperCase() + value.slice(1);
+      //   });
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          date: new Date(),
+        },
+      });
+    </script>
+  </body>
+</html>
